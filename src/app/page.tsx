@@ -77,6 +77,43 @@ export default function Home() {
             Instagram Login & Like App
           </h1>
 
+          {/* Instagram Credentials Display */}
+          <div className="bg-white rounded-lg shadow-xl p-6 mb-6">
+            <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+              🔑 Instagram App Credentials
+            </h2>
+            <div className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  CLIENT_ID (Instagram App ID):
+                </label>
+                <div className="bg-gray-100 p-3 rounded-lg font-mono text-sm break-all">
+                  {process.env.NEXT_PUBLIC_INSTAGRAM_CLIENT_ID || 'Not configured'}
+                </div>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">
+                  CLIENT_SECRET (Instagram App Secret):
+                </label>
+                <div className="bg-gray-100 p-3 rounded-lg font-mono text-sm break-all">
+                  {process.env.NEXT_PUBLIC_INSTAGRAM_CLIENT_SECRET || 'Not configured (hidden for security)'}
+                </div>
+              </div>
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                <h3 className="font-semibold text-blue-800 mb-2">📋 How to Get These Credentials:</h3>
+                <ol className="text-sm text-blue-700 space-y-1 list-decimal list-inside">
+                  <li>Go to <a href="https://developers.facebook.com/" target="_blank" rel="noopener noreferrer" className="underline">Facebook Developers</a></li>
+                  <li>Create a new app or select existing app</li>
+                  <li>Add "Instagram Basic Display" product</li>
+                  <li>Go to Instagram Basic Display → Basic Display</li>
+                  <li>Copy the Instagram App ID and App Secret</li>
+                  <li>Add your Instagram account as a test user</li>
+                  <li>Set redirect URI: <code className="bg-blue-100 px-1 rounded">http://localhost:3000/api/auth/callback/instagram</code></li>
+                </ol>
+              </div>
+            </div>
+          </div>
+
           {!session ? (
             <div className="bg-white rounded-lg shadow-xl p-8 text-center">
               <div className="mb-6">
